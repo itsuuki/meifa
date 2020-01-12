@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'mains/index'
+  devise_for :users
+  # get 'mains/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root "mains#index"
 end
