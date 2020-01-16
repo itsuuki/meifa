@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
+  resources :products
   devise_for :users
-  # get 'mains/index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "mains#index"
+  root "coordinations#index"
+
+  resources :users, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :coordinations, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :outers, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :inners, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :bottoms, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :shoes, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :hats, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :accessories, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 end

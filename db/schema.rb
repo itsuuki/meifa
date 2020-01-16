@@ -10,7 +10,82 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200112062600) do
+ActiveRecord::Schema.define(version: 20200114070534) do
+
+  create_table "accessories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "accessory"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "accessory_coordinations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "accessory_id"
+    t.integer  "coordination_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["accessory_id"], name: "index_accessory_coordinations_on_accessory_id", using: :btree
+    t.index ["coordination_id"], name: "index_accessory_coordinations_on_coordination_id", using: :btree
+  end
+
+  create_table "bottoms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "bottom"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chage_coordinations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "coordinations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "season"
+    t.string   "coordination"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "outer_id"
+    t.integer  "inner_id"
+    t.integer  "bottom_id"
+    t.integer  "shoes_id"
+    t.integer  "hat_id"
+    t.integer  "accessory_id"
+    t.index ["accessory_id"], name: "index_coordinations_on_accessory_id", using: :btree
+    t.index ["bottom_id"], name: "index_coordinations_on_bottom_id", using: :btree
+    t.index ["hat_id"], name: "index_coordinations_on_hat_id", using: :btree
+    t.index ["inner_id"], name: "index_coordinations_on_inner_id", using: :btree
+    t.index ["outer_id"], name: "index_coordinations_on_outer_id", using: :btree
+    t.index ["shoes_id"], name: "index_coordinations_on_shoes_id", using: :btree
+  end
+
+  create_table "hats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "hat"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "inners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "inner"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "outers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "outer"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shoes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "shoe"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                null: false
@@ -26,4 +101,12 @@ ActiveRecord::Schema.define(version: 20200112062600) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "accessory_coordinations", "accessories"
+  add_foreign_key "accessory_coordinations", "coordinations"
+  add_foreign_key "coordinations", "accessories"
+  add_foreign_key "coordinations", "bottoms"
+  add_foreign_key "coordinations", "hats"
+  add_foreign_key "coordinations", "inners"
+  add_foreign_key "coordinations", "outers"
+  add_foreign_key "coordinations", "shoes", column: "shoes_id"
 end

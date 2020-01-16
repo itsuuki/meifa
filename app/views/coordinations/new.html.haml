@@ -1,0 +1,109 @@
+.lists
+  .cloth
+    服一覧
+    -# = form_for @coordination do |f|
+    -#   .form-user
+    = form_for @outer do |f|
+      = f.label :"アウター", class: "outer-btn"
+      = f.file_field :image, class: "file-btn"
+      = f.submit "追加", class: "add-btn"
+    %br
+    = form_for @inner do |f|
+      = f.label :"インナー", class: "inner-btn"
+      = f.file_field :image, class: "file-btn"
+      = f.submit "追加", class: "add-btn"
+    %br
+    = form_for @bottom do |f|
+      = f.label :"ボトム", class: "bottom-btn"
+      = f.file_field :image, class: "file-btn"
+      = f.submit "追加", class: "add-btn"
+    %br
+    = form_for @shoe do |f|
+      = f.label :"靴", class: "shoe-btn"
+      = f.file_field :image, class: "file-btn"
+      = f.submit "追加", class: "add-btn"
+    %br
+    = form_for @hat do |f|
+      = f.label :"帽子", class: "hat-btn"
+      = f.file_field :image, class: "file-btn"
+      = f.submit "追加", class: "add-btn"
+    %br
+    = form_for @accessory do |f|
+      = f.label :"アクセサリー", class: "accessory-btn"
+      = f.file_field :image, class: "file-btn"
+      = f.submit "追加", class: "add-btn"
+    %br
+
+    -# .outer-btn
+    -#   アウター
+    -#   = form_for(@coordination, url: edit_bottom_path) do |f|
+    -#     = f.file_field :upload_file, class: "file-btn"
+    -#     = f.submit "追加", class: "form-submit"
+    -#   -# .outer-btn__more
+    -#   -#   = image_tag "arrow_top.png"
+    -#   -#   .outer-btn__more__list
+    -#   -#     -# = link_to "削除", 
+    -# .inner-btn
+    -#   インナー
+    -#   = form_for(@coordination) do |f|
+    -#     = f.file_field :upload_file, class: "file-btn"
+    -#     = f.submit "追加", class: "form-submit"
+    -# .bottom-btn
+    -#   ズボン
+    -#   = form_for(@coordination) do |f|
+    -#     = f.file_field :upload_file, class: "file-btn"
+    -#     = f.submit "追加", class: "form-submit"
+    -# .shoe-btn
+    -#   靴
+    -#   = form_for(@coordination) do |f|
+    -#     = f.file_field :upload_file, class: "file-btn"
+    -#     = f.submit "追加", class: "form-submit"
+    -# .hat-btn
+    -#   帽子
+    -#   = form_for(@coordination) do |f|
+    -#     = f.file_field :upload_file, class: "file-btn"
+    -#     = f.submit "追加", class: "form-submit"
+    -# .accessory-btn
+    -#   アクセサリー
+    -#   = form_for(@coordination) do |f|
+    -#     = f.file_field :upload_file, class: "file-btn"
+    -#     = f.submit "追加", class: "form-submit"
+.fots
+  .fot
+    .send-btn
+      決定
+    .add-btn
+      追加
+    .my-pages
+      = link_to "マイページ", "/users/new", class: "btns"
+
+
+
+
+
+
+
+-# = f.fields_for :outer do |i|
+-#         .form-group
+-#           = i.label :outer, "アウター"
+-#           = f.file_field :upload_file, class: "file-btn"
+-#       = f.fields_for :inner do |i|
+-#         .form-group
+-#           = i.label :inner, "インナー"
+-#           = f.file_field :upload_file, class: "file-btn"
+-#       = f.fields_for :bottom do |i|
+-#         .form-group
+-#           = i.label :bottom, "ズボン"
+-#           = f.file_field :upload_file, class: "file-btn"
+-#       = f.fields_for :shoe do |i|
+-#         .form-group
+-#           = i.label :shoe, "靴"
+-#           = f.file_field :upload_file, class: "file-btn"
+-#       = f.fields_for :outer do |i|
+-#         .form-group
+-#           = i.label :hat, "帽子"
+-#           = f.file_field :upload_file, class: "file-btn"
+-#       = f.fields_for :outer do |i|
+-#         .form-group
+-#           = i.label :accessory, "アクセサリー"
+-#           = f.file_field :upload_file, class: "file-btn"

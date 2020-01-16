@@ -1,0 +1,2 @@
+class ChageCoordination < ApplicationRecord
+end
