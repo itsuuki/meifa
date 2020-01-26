@@ -11,6 +11,12 @@ class User < ApplicationRecord
   has_many :shoes
   has_many :hats
   has_many :accessorys
+  has_many :favorites
+  has_many :fav_coordinations, through: :favorites, source: :coordination
+  def like(coordination)
+    favorites.find_or_create_by(coordination_id: coordination.id)
+    favorite.destroy if favorite
+  end
   # mount_uploader :image, ImagesUploader
   # validates :name, presence: true, uniqueness: true
 end

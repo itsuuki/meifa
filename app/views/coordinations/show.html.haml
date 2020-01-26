@@ -1,0 +1,37 @@
+.sss
+  = @coordinations.find(params[:id]).season
+  = @coordinations.find(params[:id]).coordination
+  = @coordinations.find(params[:id]).outer_id
+  - if @outer != []
+    = image_tag @outer.outer
+  - else
+    = "त्यहाँ कुनै छवि छैन"
+  = @coordinations.find(params[:id]).inner_id
+  - if @inner != []
+    = image_tag @inner.inner
+  - else
+    = "त्यहाँ कुनै छवि छैन"
+  = @coordinations.find(params[:id]).bottom_id
+  - if @bottom != []
+    = image_tag @bottom.bottom
+  - else
+    = "त्यहाँ कुनै छवि छैन"
+  = @coordinations.find(params[:id]).shoes_id
+  - if @shoes != []
+    = image_tag @shoes.shoe
+  - else
+    = "त्यहाँ कुनै छवि छैन"
+  = @coordinations.find(params[:id]).hat_id
+  - if @hat != []
+    = image_tag @hat.hat
+  - else
+    = "त्यहाँ कुनै छवि छैन"
+  = @coordinations.find(params[:id]).accessory_id
+  - if @accessory != []
+    = image_tag @accessory.accessory
+  - else
+    = "त्यहाँ कुनै छवि छैन"
+.ftftft
+  .root-btns
+    .root-btn
+      = link_to "Kua hope", root_path, class: "roott"

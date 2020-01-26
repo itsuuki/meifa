@@ -6,13 +6,15 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @users = User.all
   end
 
   def create
     @user = User.new
   end
   def show
-    @user = User.new
+    @users = User.find(params[:id])
+    @favorites = Favorite.where("user_id = ?", @user)
   end
 
   def edit

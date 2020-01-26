@@ -1,10 +1,21 @@
 .bottom
+  = form_tag(search_coordinations_path,:method => 'get') do
+    .searchh
+      = text_field_tag :search, "", {placeholder: "खोज्नुहोस्"}
+      = submit_tag 'Search', :name => nil
+      -# - binding.pry
+  = form_for @coordination do |f|
+    - @coordinations.each do |coordination|
+      .title-all
+        = link_to coordination.coordination, coordination_path(coordination[:id]), class: "mono"
+        = f.submit "თაკუმა ომი" 
+
 .footer
   .select-field
-    .season
-      季節
     .select-btn
-      btn
+      決定
+    .create-btn
+
     .detail
       = link_to "詳細", new_coordination_path, class: "show-btn"
     .my-pages

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200114070534) do
+ActiveRecord::Schema.define(version: 20200120070423) do
 
   create_table "accessories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "accessory"
@@ -40,23 +40,41 @@ ActiveRecord::Schema.define(version: 20200114070534) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chages_coordinations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "coordinations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "season"
     t.string   "coordination"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "outer"
     t.integer  "outer_id"
     t.integer  "inner_id"
     t.integer  "bottom_id"
     t.integer  "shoes_id"
     t.integer  "hat_id"
     t.integer  "accessory_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["accessory_id"], name: "index_coordinations_on_accessory_id", using: :btree
     t.index ["bottom_id"], name: "index_coordinations_on_bottom_id", using: :btree
     t.index ["hat_id"], name: "index_coordinations_on_hat_id", using: :btree
     t.index ["inner_id"], name: "index_coordinations_on_inner_id", using: :btree
     t.index ["outer_id"], name: "index_coordinations_on_outer_id", using: :btree
     t.index ["shoes_id"], name: "index_coordinations_on_shoes_id", using: :btree
+    t.index ["user_id"], name: "index_coordinations_on_user_id", using: :btree
+  end
+
+  create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "coordination_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["coordination_id"], name: "index_favorites_on_coordination_id", using: :btree
+    t.index ["user_id", "coordination_id"], name: "index_favorites_on_user_id_and_coordination_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_favorites_on_user_id", using: :btree
   end
 
   create_table "hats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -109,4 +127,7 @@ ActiveRecord::Schema.define(version: 20200114070534) do
   add_foreign_key "coordinations", "inners"
   add_foreign_key "coordinations", "outers"
   add_foreign_key "coordinations", "shoes", column: "shoes_id"
+  add_foreign_key "coordinations", "users"
+  add_foreign_key "favorites", "coordinations"
+  add_foreign_key "favorites", "users"
 end
