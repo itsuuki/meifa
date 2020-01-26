@@ -1,7 +1,11 @@
 class HatsController < ApplicationController
-
+  def index
+    @hats = Hat.all
+  end
   def new 
     @hat = Hat.new
+    @hats = Hat.all
+    @hat.coordination.build
   end
 
   def create
@@ -10,6 +14,6 @@ class HatsController < ApplicationController
 
   private
   def hat_params
-    params.require(:hat).permit(:hat, :image)
+    params.require(:hat).permit(:hat, :image, coordinations_attributes: [:hat_id])
   end
 end

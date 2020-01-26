@@ -1,15 +1,17 @@
 class OutersController < ApplicationController
-
   def index
     @outers = Outer.all
+    # binding.pry
   end
   def new 
     @outer = Outer.new
+    @outers = Outer.all
+    @outer.coordination.build
+    # @outerss = @coordination.outers
   end
 
   def create
-    # binding.pry
-    Outer.create(outer_params)
+    Outer.create!(outer_params)
     # binding.pry
 
     # if @outer.save
@@ -20,9 +22,27 @@ class OutersController < ApplicationController
     
   end
 
+  def edit
+    # binding.pry
+    @outers = Outer.find(params[:id])
+  end
+  def update
+    
+    @outers = Outer.find(params[:id])
+  end
+  def destroy
+    outer = Outer.find(params[:id])
+    outer.destroy
+  end
+
+
+
   private
   def outer_params
-
-    params.require(:outer).permit(:outer, :image)
+    # binding.pry
+    params.require(:outer).permit(:outer, coordinations_attributes: [:outer_id])
   end
 end
+
+# coordination_attributes: [:id, :coordination, :season, :outer_id, :inner_id, :botton_id, :shoe_id, :hat_id, :accessory_id]
+

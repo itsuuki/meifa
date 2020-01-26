@@ -4,8 +4,12 @@ Rails.application.routes.draw do
 
   root "coordinations#index"
 
+  
+  resources :coordinations, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+    resources :favorites, only: [:new, :create, :destory]
+    get :search, on: :collection
+  end
   resources :users, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-  resources :coordinations, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   resources :outers, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   resources :inners, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   resources :bottoms, only: [:index, :new, :create, :show, :edit, :update, :destroy]

@@ -1,7 +1,11 @@
 class AccessoriesController < ApplicationController
-
+  def index
+    @accessories = Accessory.all
+  end
   def new 
     @accessory = Accessory.new
+    @accessories = Accessory.all
+    @accessory.coordination.build
   end
 
   def create
@@ -10,6 +14,6 @@ class AccessoriesController < ApplicationController
 
   private
   def accessory_params
-    params.require(:accessory).permit(:accessory, :image)
+    params.require(:accessory).permit(:accessory, :image, coordinations_attributes: [:accessory_id])
   end
 end

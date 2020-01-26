@@ -17,11 +17,7 @@
     text-decoration: none;
   }
   .my-user {
-    display: flex;
-    text-align: right;
-    .name {
-      
-    }
+    
     .list {
       
       .btn {
@@ -36,6 +32,20 @@
   height: calc(100vh - 180px);
   width: 100%;
   overflow: scroll;
+  .searchh {
+    text-align: center;
+    font-size: 40px;
+  }
+  .title-all{
+    font-size: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .mono{
+      color: black;
+      text-decoration: none;
+    }
+  }
 }
 .footer {
   background-color: #fafafa;
@@ -50,22 +60,28 @@
     text-align: center;
     line-height: 80px;
 
-    .season {
-      background-color: green;
-      height: 80px;
-      width: 200px;
-      font-size: 25px;
-    }
+    
     .select-btn {
       background-color: red;
       height: 80px;
-      width: 750px;
+      width: 850px;
       font-size: 25px;
+      .season {
+        height: 50px;
+      }
+      .make {
+        height: 130px;
+        width: 60px;
+        font-size: 100px;
+      }
+      .coordination-name {
+        width: 600px;
+      }
     }
     .detail {
       background-color: blue;
       height: 80px;
-      width: 250px;
+      width: 350px;
       font-size: 25px;
       .show-btn {
         color: white;
@@ -93,39 +109,61 @@
   font-size: 30px;
   overflow: scroll;
   .cloth {
-
+    
   }    
 }
+  .adddd{
+    display: flex;
     .outer-btn {
       border: solid;
       padding: 10px 35px 10px 35px;
+      text-decoration: none;
+      color: black;
     }
+    
+   
     .inner-btn {
       border: solid;
       padding: 10px 10px 10px 10px;
+      text-decoration: none;
+      color: black;
     }
     .bottom-btn {
       border: solid;
       padding: 10px 10px 10px 10px;
+      text-decoration: none;
+      color: black;
     }
     .shoe-btn {
       border: solid;
       padding: 10px 10px 10px 10px;
+      text-decoration: none;
+      color: black;
     }
     .hat-btn {
       border: solid;
       padding: 10px 10px 10px 10px;
+      text-decoration: none;
+      color: black;
     }
     .accessory-btn {
       border: solid;
       padding: 10px 10px 10px 10px;
+      text-decoration: none;
+      color: black;
     }
     .file-btn {
       font-size: 0;
     }
-    .form-submit {
-
-    }
+  }
+  .submit-btnss {
+    margin-top: 300px;
+    border: solid;
+    padding: 0 40px 0 40px
+  }
+  #coordination_coordinations_coordination {
+    width: 80px;
+  }
 .fots {
   background-color: #fafafa;
   height: 80px;
@@ -133,6 +171,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   .fot {
     margin: auto;
     display: flex;
@@ -143,12 +182,15 @@
       height: 80px;
       width: 950px;
       font-size: 25px;
+      text-decoration: none;
+      color: black;
     }
     .add-btn {
       background-color: blue;
       height: 80px;
       width: 250px;
       font-size: 25px;
+      color: white;
     }
     .my-pages {
       background-color: black;
@@ -165,3 +207,166 @@
 }
 
 // @media screen { .file-btn { display: none; } }
+
+
+
+
+.view-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .user {
+    width: 200px;
+    text-align: center;
+    border: solid;
+    margin-top: 50px;
+    padding: 20px 40px 20px 40px;
+    position: relative;
+    .user-show {
+      position: absolute;
+      cursor: pointer;
+      top: 5px;
+      right: 10px;
+      z-index: 2;
+      height: 20px;
+      width: 15px;
+      text-align: right;
+    }
+    &:hover .user-show-btn {
+      display: block;
+    }
+    .user-show-btn {
+      position: absolute;
+      text-align: left;
+      width: 30px;
+      right: 0;
+      font-size: 12px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      display: none;
+      box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      border-radius: 3px;
+  }
+}
+  .clothes-btn {
+    width: 200px;
+    text-align: center;
+    border: solid;
+    margin-top: 100px;
+    padding: 20px 40px 20px 40px;
+    text-decoration: none;
+    color: black;
+  }
+
+}
+.ftftft{
+  .root-btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 230px;
+    widows: 100%;
+    background-color: gray;
+    .root-btn{
+      
+      font-size: 60px;
+      .roott{
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}
+
+.a {
+  /* フォントサイズなどを任意で指定する */
+  font: bold 10em / 1 Verdana, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  
+  /* 背景グラデーションを指定・幅を 200% にしておく */
+  background: linear-gradient(to right, #f00 0%, #f80 14.28%, #dd0 28.56%, #0d0 42.85%, #0dd 57.14%, #00f 71.42%, #e0e 85.71%, #f00 100%) 0% center / 200% auto;
+  
+  /* 背景画像を文字でマスクする */
+          background-clip: text;
+  -webkit-background-clip: text;
+  
+  /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
+          text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  
+  /* アニメーション指定 */
+  animation: example 4s linear infinite;
+}
+
+/* 背景の横位置をズラす */
+@keyframes example {
+  to { background-position-x: 200%; }
+}
+
+
+
+.aass {
+  display: flex;
+  justify-content: space-around;
+  .aaff label{
+    width: 90px;
+    display: flex;
+    padding: 10px;
+    font-weight: bold;
+    border: solid 2px black;
+    cursor :pointer;
+  }
+  .aaff label:hover {
+    background: #efefef;
+  }
+  #label1{
+      display: none;
+  }
+  .aaff .aadd{
+    display: none;
+  }
+  .aaff input:checked ~ .aadd {
+    display: block;
+    .aahh {
+    }
+  }
+  #label2{
+      display: none;
+  }
+  #label3{
+      display: none;
+  }
+  #label4{
+      display: none;
+  }
+  #label5{
+      display: none;
+  }
+  
+  #label6{
+      display: none;
+  }
+  .aaff {
+    // display: flex;
+    // justify-content: space-around;
+
+    // position: fixed;
+    
+    &:hover .aadd {
+      display: block;
+      
+    }
+    .aadd {
+      display: none;
+      position: absolute;
+      position: fixed;
+      overflow: scroll;
+      height: 350px;
+    }
+  }
+}
+
+img{
+  height: 150px;
+  width: 150px;
+}
