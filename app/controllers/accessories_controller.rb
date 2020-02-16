@@ -10,6 +10,10 @@ class AccessoriesController < ApplicationController
 
   def create
     Accessory.create(accessory_params)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private

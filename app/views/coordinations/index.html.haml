@@ -1,15 +1,83 @@
-.bottom
-  = form_tag(search_coordinations_path,:method => 'get') do
-    .searchh
-      = text_field_tag :search, "", {placeholder: "खोज्नुहोस्"}
-      = submit_tag 'Search', :name => nil
-      -# - binding.pry
-  = form_for @coordination do |f|
-    - @coordinations.each do |coordination|
-      .title-all
-        = link_to coordination.coordination, coordination_path(coordination[:id]), class: "mono"
-        = f.submit "თაკუმა ომი" 
+#wrap
+  .btn
+    コーディネート
+  .bottom1
+    = form_tag(coordinations_path,:method => 'get') do
+      .searchh
+        = text_field_tag :search, "", {placeholder: "खोज्नुहोस्"}
+        = submit_tag 'Search', :name => nil
+    = form_for @coordination do |f|
+      - @coordinationss.each do |coordinations|
+        .title-all
+          = link_to coordinations.coordination, coordination_path(coordinations[:id]), class: "mono"
+          = f.submit "თაკუმა ომი" 
+  .bottom2
+    = form_for @coordination do |f|
+      -# = f.hidden_field :coordination, value: params[:coordination]
+      -# = i.hidden_field :accessory_id, value: accessory.id
+      .aass
+        .aaff
+          %label(for="label1")一覧
+          %input(type="checkbox" id="label1")
+          .aadd
+            - @outers.each do |outer|
+              .aahh
+                = f.fields_for :coordinations do |m|
+                  = image_tag outer.outer
+                  = m.select :coordination, @coordinationsss, :prompt => "選択してください"
 
+                  = m.check_box :outer_id, {:checked=>false}, outer.id, nil
+        .aaff
+          %label(for="label2")一覧
+          %input(type="checkbox" id="label2")
+          .aadd
+            - @inners.each do |inner|
+              .aahh
+                = f.fields_for :coordinations do |v| 
+                  = image_tag inner.inner
+                  = v.select :coordination, @coordinations
+                  = v.check_box :inner_id, {:checked=>false}, inner.id, nil
+        .aaff
+          %label(for="label3")一覧
+          %input(type="checkbox" id="label3")
+          .aadd
+            - @bottoms.each do |bottom|
+              .aahh
+                = f.fields_for :coordinations do |q| 
+                  = image_tag bottom.bottom
+                  = q.select :coordination, @coordinations
+                  = q.check_box :bottom_id, {:checked=>false}, bottom.id, nil
+        .aaff
+          %label(for="label4")一覧
+          %input(type="checkbox" id="label4")
+          .aadd
+            - @shoes.each do |shoes|
+              .aahh
+                = f.fields_for :coordinations do |x| 
+                  = image_tag shoes.shoe
+                  = x.select :coordination, @coordinations
+                  = x.check_box :shoes_id, {:checked=>false}, shoes.id, nil
+        .aaff
+          %label(for="label5")一覧
+          %input(type="checkbox" id="label5")
+          .aadd
+            - @hats.each do |hat|
+              .aahh
+                = f.fields_for :coordinations do |j| 
+                  = image_tag hat.hat
+                  = j.select :coordination, @coordinations
+                  = j.check_box :hat_id, {:checked=>false}, hat.id, nil
+        .aaff    
+          %label(for="label6")一覧
+          %input(type="checkbox" id="label6")
+          .aadd
+            - @accessories.each do |accessory|
+              .aahh
+                = f.fields_for :coordinations do |i| 
+                  = image_tag accessory.accessory
+                  = i.select :coordination, @coordinations
+                  = i.check_box :accessory_id, {:checked=>false}, accessory.id, nil
+      = f.submit "作成", class:"submit-btnss"
 .footer
   .select-field
     .select-btn

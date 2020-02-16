@@ -11,6 +11,10 @@ class ShoesController < ApplicationController
 
   def create
     Shoe.create(shoes_params)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private

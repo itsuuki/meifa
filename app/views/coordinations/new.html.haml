@@ -1,110 +1,47 @@
 .lists
   .cloth
     = form_for @coordination do |f|
-      = f.text_field :coordination, placeholder: "د همغږۍ نوم", class: "outer-btn"
+      = f.text_field :coordination, placeholder: "د همغږۍ نوم", class: "coordination-btn"
       = f.submit "作成", class: "add-btn"
     服一覧
-    .adddd
-      = form_for @outer do |f|
-        = f.label :"アウター", class: "outer-btn"
-        = f.file_field :outer, class: "file-btn"
-        = f.submit "追加", class: "add-btn"
-        
-        
-            
-      = form_for @inner do |f|
-        = f.label :"インナー", class: "inner-btn"
-        = f.file_field :inner, class: "file-btn"
-        = f.submit "追加", class: "add-btn"
-        
-            
-      = form_for @bottom do |f|
-        = f.label :"ボトム", class: "bottom-btn"
-        = f.file_field :bottom, class: "file-btn"
-        = f.submit "追加", class: "add-btn"
-        
-            
-      = form_for @shoe do |f|
-        = f.label :"シューズ", class: "shoe-btn"
-        = f.file_field :shoe, class: "file-btn"
-        = f.submit "追加", class: "add-btn"
-        
-            
-      = form_for @hat do |f|
-        = f.label :"ハット", class: "hat-btn"
-        = f.file_field :hat, class: "file-btn"
-        = f.submit "追加", class: "add-btn"
-        
-            
-      = form_for @accessory do |f|
-        = f.label :"アクセサリー", class: "accessory-btn"
-        = f.file_field :accessory, class: "file-btn"
-        = f.submit "追加", class: "add-btn"
+    -# .adddd
+    = form_for @outer do |f|
+      = f.label :"アウター", class: "outer-btn"
+      = f.file_field :outer, class: "file-btn"
+      = f.submit "追加", class: "add-btn"
+      
+      
+          
+    = form_for @inner do |f|
+      = f.label :"インナー", class: "inner-btn"
+      = f.file_field :inner, class: "file-btn"
+      = f.submit "追加", class: "add-btn"
+      
+          
+    = form_for @bottom do |f|
+      = f.label :"ボトム", class: "bottom-btn"
+      = f.file_field :bottom, class: "file-btn"
+      = f.submit "追加", class: "add-btn"
+      
+          
+    = form_for @shoe do |f|
+      = f.label :"シューズ", class: "shoe-btn"
+      = f.file_field :shoe, class: "file-btn"
+      = f.submit "追加", class: "add-btn"
+      
+          
+    = form_for @hat do |f|
+      = f.label :"ハット", class: "hat-btn"
+      = f.file_field :hat, class: "file-btn"
+      = f.submit "追加", class: "add-btn"
+      
+          
+    = form_for @accessory do |f|
+      = f.label :"アクセサリー", class: "accessory-btn"
+      = f.file_field :accessory, class: "file-btn"
+      = f.submit "追加", class: "add-btn"
 
-    = form_for @coordination do |f|
-      .aass
-        .aaff
-          %label(for="label1")一覧
-          %input(type="checkbox" id="label1")
-          .aadd
-            - @outers.each do |outer|
-              .aahh
-                = f.fields_for :coordinations do |m|
-                  = image_tag outer.outer
-                  = m.select :coordination, @coordinations
-                  = m.check_box :outer_id, {:checked=>false}
-                  = m.hidden_field :outer_id, value: outer.id
-        .aaff
-          %label(for="label2")一覧
-          %input(type="checkbox" id="label2")
-          .aadd
-            - @inners.each do |inner|
-              = f.fields_for :coordinations do |v| 
-                = image_tag inner.inner
-                = v.select :coordination, @coordinations
-                = v.check_box :inner_id, {:checked=>false}
-                = v.hidden_field :inner_id, value: inner.id
-        .aaff
-          %label(for="label3")一覧
-          %input(type="checkbox" id="label3")
-          .aadd
-            - @bottoms.each do |bottom|
-              = f.fields_for :coordinations do |q| 
-                = image_tag bottom.bottom
-                = q.select :coordination, @coordinations
-                = q.check_box :bottom_id, {:checked=>false}
-                = q.hidden_field :bottom_id, value: bottom.id
-        .aaff
-          %label(for="label4")一覧
-          %input(type="checkbox" id="label4")
-          .aadd
-            - @shoes.each do |shoes|
-              = f.fields_for :coordinations do |x| 
-                = image_tag shoes.shoe
-                = x.select :coordination, @coordinations
-                = x.check_box :shoes_id, {:checked=>false}
-                = x.hidden_field :shoes_id, value: shoes.id
-        .aaff
-          %label(for="label5")一覧
-          %input(type="checkbox" id="label5")
-          .aadd
-            - @hats.each do |hat|
-              = f.fields_for :coordinations do |j| 
-                = image_tag hat.hat
-                = j.select :coordination, @coordinations
-                = j.check_box :hat_id, {:checked=>false}
-                = j.hidden_field :hat_id, value: hat.id
-        .aaff    
-          %label(for="label6")一覧
-          %input(type="checkbox" id="label6")
-          .aadd
-            - @accessories.each do |accessory|
-              = f.fields_for :coordinations do |i| 
-                = image_tag accessory.accessory
-                = i.select :coordination, @coordinations
-                = i.check_box :accessory_id, {:checked=>false}
-                = i.hidden_field :accessory_id, value: accessory.id
-      = f.submit "作成", class:"submit-btnss"
+    
 
 
 .fots

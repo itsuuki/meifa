@@ -11,14 +11,22 @@ class OutersController < ApplicationController
   end
 
   def create
-    Outer.create!(outer_params)
+    @coordinations = Coordination.pluck(:coordination)
     # binding.pry
-
-    # if @outer.save
+    @outer = Outer.new(outer_params)
+    if @outer.save
+      respond_to do |format|
+        format.json
+        # binding.pry
+      end
+    redirect_to new_coordination_path
+    # binding.pry
+    end
+   
     #   redirect_to root_path
     # else
     #   render :new
-    # end
+    
     
   end
 
