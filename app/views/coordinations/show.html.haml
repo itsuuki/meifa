@@ -2,37 +2,46 @@
   = @coordinations.find(params[:id]).season
   .sssaaa
     = @coordinations.find(params[:id]).coordination
-  = @coordinations.find(params[:id]).outer_id
-  - if @outer != []
-    = image_tag @outer.outer
-  - else
-    = "त्यहाँ कुनै छवि छैन"
-  = @coordinations.find(params[:id]).inner_id
-  - if @inner != []
-    = image_tag @inner.inner
-  - else
-    = "त्यहाँ कुनै छवि छैन"
-  = @coordinations.find(params[:id]).bottom_id
-  - if @bottom != []
-    = image_tag @bottom.bottom
-  - else
-    = "त्यहाँ कुनै छवि छैन"
-  = @coordinations.find(params[:id]).shoes_id
-  - if @shoes != []
-    = image_tag @shoes.shoe
-  - else
-    = "त्यहाँ कुनै छवि छैन"
-  = @coordinations.find(params[:id]).hat_id
-  - if @hat != []
-    = image_tag @hat.hat
-  - else
-    = "त्यहाँ कुनै छवि छैन"
-  = @coordinations.find(params[:id]).accessory_id
-  - if @accessory != []
-    = image_tag @accessory.accessory
-  - else
-    = "त्यहाँ कुनै छवि छैन"
+    = link_to "編集", edit_coordination_path(@coordination.id), class: "update-btn"
+    = link_to "削除", "/coordinations/#{@coordination.id}", method: :delete, class: "delete-btn"
+  .sview
+    .souter
+      - if @outer != []
+        = image_tag @outer.outer
+        = "アウター"
+      - else
+        = "アウターの画像がありません"
+    .sinner
+      - if @inner != []
+        = image_tag @inner.inner
+        = "インナー"
+      - else
+        = "インナーの画像がありません"
+    .sbottom
+      - if @bottom != []
+        = image_tag @bottom.bottom
+        = "ズボン"
+      - else
+        = "ズボンの画像がありません"
+    .sshoes
+      - if @shoes != []
+        = image_tag @shoes.shoe
+        = "靴"
+      - else
+        = "靴の画像がありません"
+    .shat
+      - if @hat != []
+        = image_tag @hat.hat
+        = "帽子"
+      - else
+        = "帽子の画像がありません"
+    .saccessory
+      - if @accessory != []
+        = image_tag @accessory.accessory
+        = "アクセサリー"
+      - else
+        = "アクセサリーの画像がありません"
 .ftftft
   .root-btns
     .root-btn
-      = link_to "Kua hope", root_path, class: "roott"
+      = link_to "戻る", root_path, class: "roott"

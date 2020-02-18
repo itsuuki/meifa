@@ -4,13 +4,15 @@ class CoordinationsController < ApplicationController
     # @outers = Outer.all
     @coordinations = Coordination.all
     @coordination = Coordination.new
-    @coordinationsss = Coordination.pluck(:coordination)
+    # @coordinationssss = Coordination.find_by(params[:coordination])
+    # @coordinationsss = Coordination.pluck(:coordination, :id)
     @outers = Outer.all
     @inners = Inner.all
     @bottoms = Bottom.all
     @shoes = Shoe.all
     @hats = Hat.all
     @accessories = Accessory.all
+    # binding.pry
   end
 
   def new
@@ -21,28 +23,24 @@ class CoordinationsController < ApplicationController
     @shoe = Shoe.new
     @hat = Hat.new
     @accessory = Accessory.new
-    # @coordinations = Coordination.pluck(:coordination)
-    # @outers = Outer.all
-    # @inners = Inner.all
-    # @bottoms = Bottom.all
-    # @shoes = Shoe.all
-    # @hats = Hat.all
-    # @accessories = Accessory.all
   end
 
   def create
-    # @outers = Outer.all
-    @coordinations = Coordination.new(coordination_params)
-    if @coordinations.save
-      respond_to do |format|
-        format.json
+    if params[:coordination].has_key?(:coordinations) == false
+      if Coordination.create(a_params)
+        redirect_to root_path
       end
-      redirect_to root_path
     else
-      puts "no"
+      @coordinations = Coordination.new(coordination_params)
+        if @coordinations.save!
+          redirect_to root_path
+        else
+          puts "no"
+        end
     end
     # binding.pry
   end
+
   def show
     @coordinations = Coordination.all
     @coordination = Coordination.find(params[:id])    
@@ -77,12 +75,39 @@ class CoordinationsController < ApplicationController
       @accessory = Accessory.none
     end
   end
+  def edit
+    @coordination = Coordination.find(params[:id])
+    @outers = Outer.all
+    @inners = Inner.all
+    @bottoms = Bottom.all
+    @shoes = Shoe.all
+    @hats = Hat.all
+    @accessories = Accessory.all
+    # @coordination.update(coordination_params)
+  end
+
+  def update
+    @coordination = Coordination.find(params[:id])
+    if @coordination.update(coordination_params)
+      redirect_to root_path
+    end
+  end
+  def destroy
+    @coordination = Coordination.find(params[:id])
+    if @coordination.destroy
+      redirect_to root_path
+    end
+  end
+
 
   def search
- 
   end
   private
-  def coordination_params
-    params.require(:coordination).require(:coordinations).permit(:coordination, :outer_id, :inner_id, :bottom_id, :shoes_id, :hat_id, :accessory_id).merge(user_id: current_user.id)
+  def a_params
+    params.require(:coordination).permit(:coordination)
   end
+  def coordination_params
+    params.require(:coordination).permit(:coordination).merge(user_id: current_user.id, outer_id: params[:coordination][:coordinations][:outer_id], inner_id: params[:coordination][:coordinations][:inner_id], bottom_id: params[:coordination][:coordinations][:bottom_id], shoes_id: params[:coordination][:coordinations][:shoes_id], hat_id: params[:coordination][:coordinations][:hat_id], accessory_id: params[:coordination][:coordinations][:accessory_id])
+  end
+  
 end

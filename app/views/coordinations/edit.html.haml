@@ -1,2 +1,63 @@
-.a 
-  a
+.bottom2
+  = form_for @coordination do |f|
+    = f.collection_select :coordination, Coordination.all, :coordination, :coordination, {prompt: "カテゴリー選択してください"}, {class: "selects-btn"}
+    .aass
+      .aaff
+        %label(for="label1")一覧
+        %input(type="checkbox" id="label1")
+        .aadd
+          - @outers.each do |outer|
+            .aahh
+              = f.fields_for :coordinations do |m|
+                = image_tag outer.outer
+                = m.check_box :outer_id, {:checked=>false}, outer.id, nil
+      .aaff
+        %label(for="label2")一覧
+        %input(type="checkbox" id="label2")
+        .aadd
+          - @inners.each do |inner|
+            .aahh
+              = f.fields_for :coordinations do |v|
+                = image_tag inner.inner
+                = v.check_box :inner_id, {:checked=>false}, inner.id, nil
+      .aaff
+        %label(for="label3")一覧
+        %input(type="checkbox" id="label3")
+        .aadd
+          - @bottoms.each do |bottom|
+            .aahh
+              = f.fields_for :coordinations do |q| 
+                = image_tag bottom.bottom
+                = q.check_box :bottom_id, {:checked=>false}, bottom.id, nil
+      .aaff
+        %label(for="label4")一覧
+        %input(type="checkbox" id="label4")
+        .aadd
+          - @shoes.each do |shoes|
+            .aahh
+              = f.fields_for :coordinations do |x| 
+                = image_tag shoes.shoe
+                = x.check_box :shoes_id, {:checked=>false}, shoes.id, nil
+      .aaff
+        %label(for="label5")一覧
+        %input(type="checkbox" id="label5")
+        .aadd
+          - @hats.each do |hat|
+            .aahh
+              = f.fields_for :coordinations do |j| 
+                = image_tag hat.hat
+                = j.check_box :hat_id, {:checked=>false}, hat.id, nil
+      .aaff    
+        %label(for="label6")一覧
+        %input(type="checkbox" id="label6")
+        .aadd
+          - @accessories.each do |accessory|
+            .aahh
+              = f.fields_for :coordinations do |i| 
+                = image_tag accessory.accessory
+                = i.check_box :accessory_id, {:checked=>false}, accessory.id, nil
+    = f.submit "作成", class:"submit-btnss"
+.ftftft
+  .root-btns
+    .root-btn
+      = link_to "戻る", coordination_path, class: "roott"

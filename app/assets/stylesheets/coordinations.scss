@@ -28,11 +28,16 @@
     }
   }
 }
-#wrap {
+#wrap{
+  .change-btn{
+    text-align: center;
+    margin: 20px;
+  }
   .bottom1 {
-    height: calc(100vh - 180px);
+    height: calc(100vh - 244px);
     width: 100%;
     overflow: scroll;
+    // display: flex;
     .searchh {
       text-align: center;
       font-size: 40px;
@@ -48,10 +53,10 @@
       }
     }
   }
-  .bottom2{
+  .allimage{
     height: 100%;
     .aass {
-      height: 100px;
+      height: 545px;
       display: flex;
       justify-content: space-around;
       .aaff label{
@@ -99,17 +104,20 @@
         }
         .aadd {
           display: none;
-          // position: fixed;
+          position: fixed;
           overflow: scroll;
-          height: 350px;
+          height: 440px;
         }
       }
     }
-    .submit-btnss {
-      margin-top: 455px;
-      border: solid;
-      padding: 0 40px 0 40px
-    }
+  }
+
+  .submit-btnss {
+    margin-top: 390px;
+    border: solid;
+    padding: 0 40px 0 40px;
+    margin-left: 45%;
+    // margin-bottom: 40px;
   }
 }
 .footer {
@@ -172,68 +180,63 @@
   text-align: center;
   font-size: 30px;
   overflow: scroll;
+  background-color: #eeeeee;
   .cloth {
-    display: flex;
-    flex-direction: column;
-    background-color: #eeeeee;
-    padding: 100px;
     .coordination-btn {
       border: solid;
       padding: 10px 35px 10px 35px;
-      text-decoration: none;
       color: black;
-      display: block;
       margin: 20px 0 20px 0;
     }
+  }
+  .louter {
     .outer-btn {
       border: solid;
       padding: 10px 35px 10px 35px;
-      text-decoration: none;
       color: black;
-      display: block;
       margin: 20px 0 20px 0;
     }
+  }
+  .linner{
     .inner-btn {
       border: solid;
       padding: 10px 10px 10px 10px;
-      text-decoration: none;
       color: black;
-      display: block;
       margin: 20px 0 20px 0;
     }
+  }
+  .lbottom {
     .bottom-btn {
       border: solid;
       padding: 10px 10px 10px 10px;
-      text-decoration: none;
       color: black;
-      display: block;
       margin: 20px 0 20px 0;
     }
+  }
+  .lshoes {
     .shoe-btn {
       border: solid;
       padding: 10px 10px 10px 10px;
-      text-decoration: none;
       color: black;
-      display: block;
       margin: 20px 0 20px 0;
     }
+  }
+  .lhat {
     .hat-btn {
       border: solid;
       padding: 10px 10px 10px 10px;
-      text-decoration: none;
       color: black;
-      display: block;
       margin: 20px 0 20px 0;
     }
+  }
+  .laccessory {
     .accessory-btn {
       border: solid;
       padding: 10px 10px 10px 10px;
-      text-decoration: none;
       color: black;
-      display: block;
       margin: 20px 0 20px 0;
     }
-  }    
+  }
 }
     .file-btn {
       font-size: 0;
@@ -335,9 +338,98 @@
 }
 .sss {
   height: calc(100vh - 220px);
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .sssaaa {
+    font-size: 40px;
+    .delete-btn {
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+    }
+    .update-btn {
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+    }
+  }
+  .sview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
-.sssaaa {
-  font-size: 40px;
+.bottom2{
+  .selects-btn {
+    margin-left: 40%;
+    height: 44px;
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .aass {
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    .aaff label{
+      width: 90px;
+      display: flex;
+      padding: 10px;
+      font-weight: bold;
+      border: solid 2px black;
+      cursor :pointer;
+    }
+    .aaff label:hover {
+      background: #efefef;
+    }
+    #label1{
+      display: none;
+    }
+    .aaff .aadd{
+      display: none;
+    }
+    .aaff input:checked ~ .aadd {
+      display: block;
+      .aahh {
+        
+      }
+    }
+    #label2{
+        display: none;
+    }
+    #label3{
+        display: none;
+    }
+    #label4{
+        display: none;
+    }
+    #label5{
+        display: none;
+    }
+    
+    #label6{
+      display: none;
+    }
+    .aaff {
+      &:hover .aadd {
+        display: block;
+      }
+      .aadd {
+        display: none;
+        position: fixed;
+        overflow: scroll;
+        height: 440px;
+      }
+    }
+  }
+  .submit-btnss {
+    margin-top: 350px;
+    border: solid;
+    padding: 0 40px 0 40px;
+    margin-left: 45%;
+  }
 }
 .ftftft{
   height: calc(100vh - 950px);

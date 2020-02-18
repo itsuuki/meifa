@@ -1,23 +1,14 @@
-// $(function(){
-//   $(".bottom1").show();
-//   $(".bottom2").hide();
-//   $('.btn').on('click',function(){
-//     $(this).addClass(bottom2);
-//     console.log(this)
-//     console.log(bottom2)
-//   });
-// })
 $(document).ready(function(){
   $('.bottom1').show();
-  $('.bottom2').hide();
-  $('.btn').click(function () {
-    $('#wrap').toggleClass('.btn');
-    if($('#wrap').hasClass('.btn')){
+  $('.allimage').hide();
+  $('.change-btn').click(function () {
+    $('#wrap').toggleClass('.change-btn');
+    if($('#wrap').hasClass('.change-btn')){
       $('.bottom1').hide();
-      $('.bottom2').show();
+      $('.allimage').show();
     }else{
       $('.bottom1').show();
-      $('.bottom2').hide();
+      $('.allimage').hide();
     }
   });
 });

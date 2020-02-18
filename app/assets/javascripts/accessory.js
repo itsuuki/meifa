@@ -1,5 +1,5 @@
 $(function(){
-  $("#new_outer").on("submit", function(e){
+  $("#new_accessory").on("submit", function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr("action")

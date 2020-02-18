@@ -38,10 +38,10 @@ class OutersController < ApplicationController
     
     @outers = Outer.find(params[:id])
   end
-  def destroy
-    outer = Outer.find(params[:id])
-    outer.destroy
-  end
+  # def destroy
+  #   @outerss = Outer.find(params[:id])
+  #   @outerss.destroy
+  # end
 
 
 
