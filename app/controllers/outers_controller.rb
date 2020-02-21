@@ -30,19 +30,6 @@ class OutersController < ApplicationController
     
   end
 
-  def edit
-    # binding.pry
-    @outers = Outer.find(params[:id])
-  end
-  def update
-    
-    @outers = Outer.find(params[:id])
-  end
-  # def destroy
-  #   @outerss = Outer.find(params[:id])
-  #   @outerss.destroy
-  # end
-
 
 
   private

@@ -6,15 +6,15 @@
       .searchh
         = text_field_tag :search, "", {placeholder: "コーディネイト検索"}
         = submit_tag 'Search', :name => nil
-    = form_for @coordination do |f|
-      - @coordinationss.each do |coordinations|
-        .title-all
-          = link_to coordinations.coordination, coordination_path(coordinations[:id]), class: "mono"
-          = f.submit "お気に入り" 
+    - @coordinationss.each do |coordinations|
+      .title-all
+        = link_to coordinations.coordination, coordination_path(coordinations[:id]), class: "mono"
+        -# = f.submit "お気に入り" 
+        = link_to "お気に入り", coordination_favorites_path(coordinations[:id]), method: :post, class: "like-btn"
   .allimage
     .aass
       .aaff
-        %label(for="label1")一覧
+        %label(for="label1")アウター一覧
         %input(type="checkbox" id="label1")
         .aadd
           - @outers.each do |outer|
@@ -23,7 +23,7 @@
               = image_tag outer.outer
                 
       .aaff
-        %label(for="label2")一覧
+        %label(for="label2")インナー一覧
         %input(type="checkbox" id="label2")
         .aadd
           - @inners.each do |inner|
@@ -32,28 +32,28 @@
               = image_tag inner.inner
                 
       .aaff
-        %label(for="label3")一覧
+        %label(for="label3")ボトム一覧
         %input(type="checkbox" id="label3")
         .aadd
           - @bottoms.each do |bottom|
             .aahh
               = image_tag bottom.bottom
       .aaff
-        %label(for="label4")一覧
+        %label(for="label4")靴一覧
         %input(type="checkbox" id="label4")
         .aadd
           - @shoes.each do |shoes|
             .aahh
               = image_tag shoes.shoe
       .aaff
-        %label(for="label5")一覧
+        %label(for="label5")帽子一覧
         %input(type="checkbox" id="label5")
         .aadd
           - @hats.each do |hat|
             .aahh
               = image_tag hat.hat
       .aaff    
-        %label(for="label6")一覧
+        %label(for="label6")アクセサリー一覧
         %input(type="checkbox" id="label6")
         .aadd
           - @accessories.each do |accessory|

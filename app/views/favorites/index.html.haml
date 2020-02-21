@@ -1,0 +1,7 @@
+.like-main
+  - @favoritess.each do |favorite|
+    = link_to Coordination.find(favorite.coordination_id).coordination, coordination_path(Coordination.find(favorite.coordination_id).id), class: "like-root"
+.ftftft
+  .root-btns
+    .root-btn
+      = link_to "戻る", root_path, class: "roott"

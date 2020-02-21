@@ -1,18 +1,14 @@
 class CoordinationsController < ApplicationController
   def index
     @coordinationss = Coordination.search(params[:search])
-    # @outers = Outer.all
     @coordinations = Coordination.all
     @coordination = Coordination.new
-    # @coordinationssss = Coordination.find_by(params[:coordination])
-    # @coordinationsss = Coordination.pluck(:coordination, :id)
     @outers = Outer.all
     @inners = Inner.all
     @bottoms = Bottom.all
     @shoes = Shoe.all
     @hats = Hat.all
     @accessories = Accessory.all
-    # binding.pry
   end
 
   def new
@@ -27,7 +23,7 @@ class CoordinationsController < ApplicationController
 
   def create
     if params[:coordination].has_key?(:coordinations) == false
-      if Coordination.create(a_params)
+      if Coordination.create!(a_params)
         redirect_to root_path
       end
     else
@@ -38,7 +34,6 @@ class CoordinationsController < ApplicationController
           puts "no"
         end
     end
-    # binding.pry
   end
 
   def show
@@ -99,12 +94,11 @@ class CoordinationsController < ApplicationController
     end
   end
 
-
   def search
   end
   private
   def a_params
-    params.require(:coordination).permit(:coordination)
+    params.require(:coordination).permit(:coordination).merge(user_id: current_user.id)
   end
   def coordination_params
     params.require(:coordination).permit(:coordination).merge(user_id: current_user.id, outer_id: params[:coordination][:coordinations][:outer_id], inner_id: params[:coordination][:coordinations][:inner_id], bottom_id: params[:coordination][:coordinations][:bottom_id], shoes_id: params[:coordination][:coordinations][:shoes_id], hat_id: params[:coordination][:coordinations][:hat_id], accessory_id: params[:coordination][:coordinations][:accessory_id])

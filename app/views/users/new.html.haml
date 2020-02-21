@@ -1,17 +1,13 @@
 .view-main
   .user
     = current_user.name
-    .user-show
-      v
-      .user-show-btn
-        - @users.each do |user|
-          = link_to "詳細", user_path(user[:id]) 
-  = link_to "服一覧", new_coordination_path, class: "clothes-btn"
+  = link_to "服一覧", root_path, class: "clothes-btn"
 
-  = link_to "お気に入り", "/coordinations/:coordination_id/favorites/new", class: "clothes-btn"
+  -# = link_to "お気に入り一覧", "/coordinations/:coordination_id/favorites/new", class: "clothes-btn"
+  = link_to "お気に入り一覧", "/coordinations/:coordination_id/favorites", class: "clothes-btn"
 
 .ftftft
   .root-btns
     .root-btn
-      = link_to "întoarcere", root_path, class: "roott"
+      = link_to "戻る", root_path, class: "roott"
   
