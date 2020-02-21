@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :shoes
   has_many :hats
   has_many :accessorys
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :fav_coordinations, through: :favorites, source: :coordination
   def like(coordination)
     favorites.find_or_create_by(coordination_id: coordination.id)

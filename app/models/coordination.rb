@@ -5,10 +5,10 @@ class Coordination < ApplicationRecord
   belongs_to :shoe, optional: true
   belongs_to :hat, optional: true
   belongs_to :accessory, optional: true
-  has_many :users
+  belongs_to :user
   has_many :accessory_coordinations
-  has_many :favorites
-  has_many :users, through: :favorites
+  has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites, source: :user
   mount_uploader :outer, ImageUploader
   def self.search(search)
     if search

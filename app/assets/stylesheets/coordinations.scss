@@ -48,8 +48,14 @@
       flex-direction: column;
       align-items: center;
       .mono{
-        color: black;
         text-decoration: none;
+        color: black;
+      }
+      .like-btn {
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+        border: solid 1px;
       }
     }
   }
@@ -60,7 +66,7 @@
       display: flex;
       justify-content: space-around;
       .aaff label{
-        width: 90px;
+        width: 120px;
         display: flex;
         padding: 10px;
         font-weight: bold;
@@ -192,55 +198,67 @@
   .louter {
     .outer-btn {
       border: solid;
-      padding: 10px 35px 10px 35px;
+      padding: 10px 35px 10px 60px;
       color: black;
-      margin: 20px 0 20px 0;
+      margin: 20px 540px 20px 490px;
+      display: block;
+      background-color: white;
     }
   }
   .linner{
     .inner-btn {
       border: solid;
-      padding: 10px 10px 10px 10px;
+      padding: 10px 35px 10px 60px;
       color: black;
-      margin: 20px 0 20px 0;
+      margin: 20px 540px 20px 490px;
+      display: block;
+      background-color: white;
     }
   }
   .lbottom {
     .bottom-btn {
       border: solid;
-      padding: 10px 10px 10px 10px;
+      padding: 10px 35px 10px 40px;
       color: black;
-      margin: 20px 0 20px 0;
+      margin: 20px 540px 20px 490px;
+      display: block;
+      background-color: white;
     }
   }
   .lshoes {
     .shoe-btn {
       border: solid;
-      padding: 10px 10px 10px 10px;
+      padding: 10px 35px 10px 40px;
       color: black;
-      margin: 20px 0 20px 0;
+      margin: 20px 540px 20px 490px;
+      display: block;
+      background-color: white;
     }
   }
   .lhat {
     .hat-btn {
       border: solid;
-      padding: 10px 10px 10px 10px;
+      padding: 10px 35px 10px 40px;
       color: black;
-      margin: 20px 0 20px 0;
+      margin: 20px 540px 20px 490px;
+      display: block;
+      background-color: white;
     }
   }
   .laccessory {
     .accessory-btn {
       border: solid;
-      padding: 10px 10px 10px 10px;
+      padding: 10px 35px 10px 40px;
       color: black;
-      margin: 20px 0 20px 0;
+      margin: 20px 540px 20px 490px;
+      display: block;
+      background-color: white;
     }
   }
+  .file-btn {
+    font-size: 0;
+  }
 }
-    .file-btn {
-      font-size: 0;
-    }
   #coordination_coordinations_coordination {
     width: 80px;
   }
@@ -289,6 +307,7 @@
 // @media screen { .file-btn { display: none; } }
 
 .view-main {
+  height: calc(100vh - 225px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -359,6 +378,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    .sbottom {
+      margin-right: 15px;
+    }
+    .sshoes {
+      margin-right: 45px;
+    }
+    .shat {
+      margin-right: 30px;
+    }
+    .saccessory {
+      margin-left: 30px;
+    }
   }
 }
 .bottom2{
@@ -374,7 +405,7 @@
     display: flex;
     justify-content: space-around;
     .aaff label{
-      width: 90px;
+      width: 120px;
       display: flex;
       padding: 10px;
       font-weight: bold;
@@ -420,7 +451,7 @@
         display: none;
         position: fixed;
         overflow: scroll;
-        height: 440px;
+        height: 400px;
       }
     }
   }
@@ -431,8 +462,20 @@
     margin-left: 45%;
   }
 }
+.like-main {
+  height: calc(100vh - 225px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  .like-root {
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+  }
+}
 .ftftft{
-  height: calc(100vh - 950px);
+  height: calc(100vh - 800px);
   .root-btns{
     display: flex;
     justify-content: center;
