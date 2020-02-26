@@ -6,24 +6,25 @@
   background-color: #fafafa;
   height: 100px;
   width: 100%;
-  text-align: center;
+  
   line-height: 90px;
   display: flex;
   justify-content: center;
   .title {
     color: black;
     font-size: 55px;
-    font-family: inherit;
-    text-decoration: none;
+    text-align: center;
+    margin-left: 550px;
   }
   .my-user {
     
     .list {
-      
       .btn {
         color: black;
         text-decoration: none;
-        
+        margin-left: 450px;
+        border: solid 1px;
+        padding: 20px;
       }
     }
   }
@@ -37,7 +38,6 @@
     height: calc(100vh - 244px);
     width: 100%;
     overflow: scroll;
-    // display: flex;
     .searchh {
       text-align: center;
       font-size: 40px;
@@ -138,29 +138,10 @@
     display: flex;
     text-align: center;
     line-height: 80px;
-
-    
-    .select-btn {
-      background-color: red;
-      height: 80px;
-      width: 850px;
-      font-size: 25px;
-      .season {
-        height: 50px;
-      }
-      .make {
-        height: 130px;
-        width: 60px;
-        font-size: 100px;
-      }
-      .coordination-name {
-        width: 600px;
-      }
-    }
     .detail {
-      background-color: blue;
+      background-color: #FF8C00;
       height: 80px;
-      width: 350px;
+      width: calc(100vw - 350px);
       font-size: 25px;
       .show-btn {
         color: white;
@@ -168,9 +149,9 @@
       }
     }
     .my-pages {
-      background-color: black;
+      background-color: #797c85;
       height: 80px;
-      width: 250px;
+      width: calc(100vw - 1090px);
       font-size: 25px;
       text-decoration: none;
       .btns {
@@ -186,7 +167,7 @@
   text-align: center;
   font-size: 30px;
   overflow: scroll;
-  background-color: #eeeeee;
+  background-color: white;
   .cloth {
     .coordination-btn {
       border: solid;
@@ -276,24 +257,17 @@
     text-align: center;
     line-height: 80px;
     .send-btn {
-      background-color: red;
+      background-color: #7fc2ef;
       height: 80px;
-      width: 950px;
+      width: calc(100vw - 350px);
       font-size: 25px;
       text-decoration: none;
-      color: black;
-    }
-    .add-btn {
-      background-color: blue;
-      height: 80px;
-      width: 250px;
-      font-size: 25px;
       color: white;
     }
     .my-pages {
-      background-color: black;
+      background-color: #797c85;
       height: 80px;
-      width: 250px;
+      width: calc(100vw - 1090px);
       font-size: 25px;
       text-decoration: none;
       .btns {
@@ -482,13 +456,13 @@
     align-items: center;
     height: 125px;
     widows: 100%;
-    background-color: gray;
+    background-color: #98FB90;
     .root-btn{
       
       font-size: 60px;
       .roott{
         text-decoration: none;
-        color: black;
+        color: white;
       }
     }
   }
