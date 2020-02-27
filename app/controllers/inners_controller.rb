@@ -19,6 +19,6 @@ class InnersController < ApplicationController
 
   private
   def inner_params
-    params.require(:inner).permit(:inner, :image, coordinations_attributes: [:inner_id])
+    params.require(:inner).permit(:inner, :image, coordinations_attributes: [:inner_id]).merge(user_id: current_user.id)
   end
 end

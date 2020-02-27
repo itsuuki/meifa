@@ -42,7 +42,7 @@ Things you may want to cover:
 - has_many :favorites
 - has_many  :favorites,  through:  :users_favorites
 
-## clothesテーブル
+## coordinationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |season|string|null: false|
@@ -70,6 +70,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |outer|string|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - has_many :coordinations
 - belongs_to :user
@@ -77,6 +78,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |inner|string|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - has_many :coordinations
 - belongs_to :user
@@ -84,6 +86,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |bottom|string|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - has_many :coordinations
 - belongs_to :user
@@ -91,6 +94,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |hat|string|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - has_many :coordinations
 - belongs_to :user
@@ -98,6 +102,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |shoe|string|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - has_many :coordinations
 - belongs_to :user
@@ -105,6 +110,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |accessory|string|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - has_many :coordinations
 - belongs_to :user

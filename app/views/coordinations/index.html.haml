@@ -1,15 +1,16 @@
 #wrap
   .change-btn
     この文字押したら切り替わるよ( ^__^ )
+  
   .bottom1
     = form_tag(coordinations_path,:method => 'get') do
       .searchh
         = text_field_tag :search, "", {placeholder: "コーディネイト検索"}
         = submit_tag 'Search', :name => nil
-    - @coordinationss.each do |coordinations|
+    -# - if current_user.id == @coordinationsss
+    - @coordinationsss.each do |coordinations|
       .title-all
         = link_to coordinations.coordination, coordination_path(coordinations[:id]), class: "mono"
-        -# = f.submit "お気に入り" 
         = link_to "お気に入り", coordination_favorites_path(coordinations[:id]), method: :post, class: "like-btn"
   .allimage
     .aass

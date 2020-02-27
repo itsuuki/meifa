@@ -12,7 +12,5 @@
     .header
       .title
         meifa
-      .my-user
-        .list
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'      
+      -# - if user_signed_in?
     = yield

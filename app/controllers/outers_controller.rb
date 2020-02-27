@@ -1,6 +1,7 @@
 class OutersController < ApplicationController
   def index
     @outers = Outer.all
+    # @outers = Outer.where(user_id: current_user.id)
     # binding.pry
   end
   def new 
@@ -35,7 +36,7 @@ class OutersController < ApplicationController
   private
   def outer_params
     # binding.pry
-    params.require(:outer).permit(:outer, coordinations_attributes: [:outer_id])
+    params.require(:outer).permit(:outer, coordinations_attributes: [:outer_id]).merge(user_id: current_user.id)
   end
 end
 

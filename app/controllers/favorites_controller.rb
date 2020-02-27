@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
     @coordination = Coordination.new
     @coordinations = Coordination.all
     @favorites = Favorite.includes(:coordination).all
-    @favoritess = Favorite.where.not(coordination_id: 0)
+    @favoritess = Favorite.where(user_id: current_user.id)
   end
   def new
   end

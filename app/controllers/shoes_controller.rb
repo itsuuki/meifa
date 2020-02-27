@@ -19,6 +19,6 @@ class ShoesController < ApplicationController
 
   private
   def shoes_params
-    params.require(:shoe).permit(:shoe, :image, coordinations_attributes: [:shoes_id])
+    params.require(:shoe).permit(:shoe, :image, coordinations_attributes: [:shoes_id]).merge(user_id: current_user.id)
   end
 end

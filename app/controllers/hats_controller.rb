@@ -18,6 +18,6 @@ class HatsController < ApplicationController
 
   private
   def hat_params
-    params.require(:hat).permit(:hat, :image, coordinations_attributes: [:hat_id])
+    params.require(:hat).permit(:hat, :image, coordinations_attributes: [:hat_id]).merge(user_id: current_user.id)
   end
 end

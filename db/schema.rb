@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200120070423) do
+ActiveRecord::Schema.define(version: 20200227170338) do
 
   create_table "accessories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "accessory"
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_accessories_on_user_id", using: :btree
   end
 
   create_table "accessory_coordinations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -33,6 +35,8 @@ ActiveRecord::Schema.define(version: 20200120070423) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_bottoms_on_user_id", using: :btree
   end
 
   create_table "chage_coordinations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -82,6 +86,8 @@ ActiveRecord::Schema.define(version: 20200120070423) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_hats_on_user_id", using: :btree
   end
 
   create_table "inners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -89,6 +95,8 @@ ActiveRecord::Schema.define(version: 20200120070423) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_inners_on_user_id", using: :btree
   end
 
   create_table "outers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -96,6 +104,8 @@ ActiveRecord::Schema.define(version: 20200120070423) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_outers_on_user_id", using: :btree
   end
 
   create_table "shoes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -103,6 +113,8 @@ ActiveRecord::Schema.define(version: 20200120070423) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_shoes_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -119,8 +131,10 @@ ActiveRecord::Schema.define(version: 20200120070423) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "accessories", "users"
   add_foreign_key "accessory_coordinations", "accessories"
   add_foreign_key "accessory_coordinations", "coordinations"
+  add_foreign_key "bottoms", "users"
   add_foreign_key "coordinations", "accessories"
   add_foreign_key "coordinations", "bottoms"
   add_foreign_key "coordinations", "hats"
@@ -130,4 +144,8 @@ ActiveRecord::Schema.define(version: 20200120070423) do
   add_foreign_key "coordinations", "users"
   add_foreign_key "favorites", "coordinations"
   add_foreign_key "favorites", "users"
+  add_foreign_key "hats", "users"
+  add_foreign_key "inners", "users"
+  add_foreign_key "outers", "users"
+  add_foreign_key "shoes", "users"
 end

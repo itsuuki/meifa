@@ -5,6 +5,8 @@
 
   -# = link_to "お気に入り一覧", "/coordinations/:coordination_id/favorites/new", class: "clothes-btn"
   = link_to "お気に入り一覧", "/coordinations/:coordination_id/favorites", class: "clothes-btn"
+  
+  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
 
 .ftftft
   .root-btns
