@@ -6,27 +6,14 @@
   background-color: #fafafa;
   height: 100px;
   width: 100%;
-  
   line-height: 90px;
   display: flex;
-  justify-content: center;
   .title {
     color: black;
     font-size: 55px;
-    text-align: center;
-    margin-left: 550px;
-  }
-  .my-user {
-    
-    .list {
-      .btn {
-        color: black;
-        text-decoration: none;
-        margin-left: 450px;
-        border: solid 1px;
-        padding: 20px;
-      }
-    }
+    text-align: center;    
+    margin: 0 auto;
+    display: flex;
   }
 }
 #wrap{
@@ -285,6 +272,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: scroll;
   .user {
     width: 200px;
     text-align: center;
@@ -319,6 +307,16 @@
   }
 }
   .clothes-btn {
+    width: 200px;
+    text-align: center;
+    border: solid;
+    margin-top: 100px;
+    padding: 20px 40px 20px 40px;
+    text-decoration: none;
+    color: black;
+  }
+
+  .btn {
     width: 200px;
     text-align: center;
     border: solid;

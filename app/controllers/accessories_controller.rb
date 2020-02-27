@@ -18,6 +18,6 @@ class AccessoriesController < ApplicationController
 
   private
   def accessory_params
-    params.require(:accessory).permit(:accessory, :image, coordinations_attributes: [:accessory_id])
+    params.require(:accessory).permit(:accessory, :image, coordinations_attributes: [:accessory_id]).merge(user_id: current_user.id)
   end
 end

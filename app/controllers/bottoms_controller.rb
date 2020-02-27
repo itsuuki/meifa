@@ -25,6 +25,6 @@ class BottomsController < ApplicationController
 
   private
   def bottom_params
-    params.require(:bottom).permit(:bottom, :image, coordinations_attributes: [:bottom_id])
+    params.require(:bottom).permit(:bottom, :image, coordinations_attributes: [:bottom_id]).merge(user_id: current_user.id)
   end
 end

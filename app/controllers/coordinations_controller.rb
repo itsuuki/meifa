@@ -3,12 +3,13 @@ class CoordinationsController < ApplicationController
     @coordinationss = Coordination.search(params[:search])
     @coordinations = Coordination.all
     @coordination = Coordination.new
-    @outers = Outer.all
-    @inners = Inner.all
-    @bottoms = Bottom.all
-    @shoes = Shoe.all
-    @hats = Hat.all
-    @accessories = Accessory.all
+    @coordinationsss = Coordination.where(user_id: current_user.id)
+    @outers = Outer.where(user_id: current_user.id)
+    @inners = Inner.where(user_id: current_user.id)
+    @bottoms = Bottom.where(user_id: current_user.id)
+    @shoes = Shoe.where(user_id: current_user.id)
+    @hats = Hat.where(user_id: current_user.id)
+    @accessories = Accessory.where(user_id: current_user.id)
   end
 
   def new
@@ -72,13 +73,13 @@ class CoordinationsController < ApplicationController
   end
   def edit
     @coordination = Coordination.find(params[:id])
-    @outers = Outer.all
-    @inners = Inner.all
-    @bottoms = Bottom.all
-    @shoes = Shoe.all
-    @hats = Hat.all
-    @accessories = Accessory.all
-    # @coordination.update(coordination_params)
+    @coordinations = Coordination.where(user_id: current_user.id)
+    @outers = Outer.where(user_id: current_user.id)
+    @inners = Inner.where(user_id: current_user.id)
+    @bottoms = Bottom.where(user_id: current_user.id)
+    @shoes = Shoe.where(user_id: current_user.id)
+    @hats = Hat.where(user_id: current_user.id)
+    @accessories = Accessory.where(user_id: current_user.id)
   end
 
   def update
@@ -103,5 +104,4 @@ class CoordinationsController < ApplicationController
   def coordination_params
     params.require(:coordination).permit(:coordination).merge(user_id: current_user.id, outer_id: params[:coordination][:coordinations][:outer_id], inner_id: params[:coordination][:coordinations][:inner_id], bottom_id: params[:coordination][:coordinations][:bottom_id], shoes_id: params[:coordination][:coordinations][:shoes_id], hat_id: params[:coordination][:coordinations][:hat_id], accessory_id: params[:coordination][:coordinations][:accessory_id])
   end
-  
 end

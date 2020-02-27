@@ -1,6 +1,6 @@
 .bottom2
   = form_for @coordination do |f|
-    = f.collection_select :coordination, Coordination.all, :coordination, :coordination, {prompt: "カテゴリー選択してください"}, {class: "selects-btn"}
+    = f.collection_select :coordination, @coordinations, :coordination, :coordination, {prompt: "カテゴリー選択してください"}, {class: "selects-btn"}
     .aass
       .aaff
         %label(for="label1")アウター一覧
