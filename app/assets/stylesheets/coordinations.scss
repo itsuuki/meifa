@@ -71,21 +71,18 @@
       }
       .aaff input:checked ~ .aadd {
         display: block;
-        .aahh {
-          
-        }
       }
       #label2{
-          display: none;
+        display: none;
       }
       #label3{
-          display: none;
+        display: none;
       }
       #label4{
-          display: none;
+        display: none;
       }
       #label5{
-          display: none;
+        display: none;
       }
       
       #label6{
@@ -100,6 +97,20 @@
           position: fixed;
           overflow: scroll;
           height: 440px;
+          .aahh {
+            .pic-btn {
+              text-decoration: none;
+              color: black;
+            }
+          }
+          .aahhh {
+            display: flex;
+            flex-direction: column;
+            .pics-btn {
+              text-decoration: none;
+              color: black;
+            }
+          }
         }
       }
     }
@@ -440,10 +451,19 @@
   flex-direction: column;
   align-items: center;
   overflow: scroll;
-  .like-root {
-    text-decoration: none;
-    color: black;
-    font-size: 30px;
+  .coo-link {
+    display: flex;
+    .like-root {
+      text-decoration: none;
+      color: black;
+      font-size: 30px;
+      margin-right: 10px;
+    }
+    .fav-btn {
+      text-decoration: none;
+      color: black;
+      margin-top: 15px;
+    }
   }
 }
 .ftftft{

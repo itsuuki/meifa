@@ -1,3 +1,7 @@
+- if @coordination.errors.any?
+  = "入力した内容にエラーが#{@coordination.errors.count}件あります"
+  - @coordination.errors.full_messages.each do |message|
+    = message
 .lists
   .cloth
     = form_for @coordination do |f|

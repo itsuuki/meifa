@@ -1,9 +1,9 @@
 class CoordinationsController < ApplicationController
   def index
-    @coordinationss = Coordination.search(params[:search])
+    @coordinationss = current_user.coordinations.search(params[:search])
     @coordinations = Coordination.all
     @coordination = Coordination.new
-    @coordinationsss = Coordination.where(user_id: current_user.id)
+    # @coordinationsss = Coordination.where(user_id: current_user.id)
     @outers = Outer.where(user_id: current_user.id)
     @inners = Inner.where(user_id: current_user.id)
     @bottoms = Bottom.where(user_id: current_user.id)
@@ -24,9 +24,12 @@ class CoordinationsController < ApplicationController
 
   def create
     if params[:coordination].has_key?(:coordinations) == false
-      if Coordination.create!(a_params)
-        redirect_to root_path
-      end
+      @coordination = Coordination.new(a_params)
+        if @coordination.save!
+          redirect_to root_path
+        else
+          render action: :new
+        end
     else
       @coordinations = Coordination.new(coordination_params)
         if @coordinations.save!
@@ -80,6 +83,8 @@ class CoordinationsController < ApplicationController
     @shoes = Shoe.where(user_id: current_user.id)
     @hats = Hat.where(user_id: current_user.id)
     @accessories = Accessory.where(user_id: current_user.id)
+    @outer = Outer.find(@coordination.outer_id)
+    # binding.pry
   end
 
   def update
@@ -93,6 +98,7 @@ class CoordinationsController < ApplicationController
     if @coordination.destroy
       redirect_to root_path
     end
+    
   end
 
   def search

@@ -22,6 +22,12 @@ class BottomsController < ApplicationController
   def update
     
   end
+  def destroy
+    @bottom = Bottom.find(params[:id])
+    if @bottom.destroy
+      redirect_to root_path
+    end
+  end
 
   private
   def bottom_params
