@@ -10,7 +10,10 @@
             .aahh
               = f.fields_for :coordinations do |m|
                 = image_tag outer.outer
-                = m.check_box :outer_id, {:checked=>false}, outer.id, nil
+                = m.check_box :outer_id, {checked: false}, outer.id, nil
+                -# @coordination.coordination.outer_id.try(:include?, "outer")
+                -# @coordination[coordinations][outer_id]
+                -# @coordination.outer_id.try(:include?, 183)
       .aaff
         %label(for="label2")インナー一覧
         %input(type="checkbox" id="label2")

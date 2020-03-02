@@ -18,6 +18,14 @@ class FavoritesController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def destroy
+    @favorite = Favorite.find(params[:id])
+    if @favorite.destroy
+      redirect_to root_path
+    end
+  end
+
   private
   def favorite_params
     params.require(:favorite).permit(:coordination_id, :user_id)

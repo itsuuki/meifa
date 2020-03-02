@@ -7,8 +7,7 @@
       .searchh
         = text_field_tag :search, "", {placeholder: "コーディネイト検索"}
         = submit_tag 'Search', :name => nil
-    -# - if current_user.id == @coordinationsss
-    - @coordinationsss.each do |coordinations|
+    - @coordinationss.each do |coordinations|
       .title-all
         = link_to coordinations.coordination, coordination_path(coordinations[:id]), class: "mono"
         = link_to "お気に入り", coordination_favorites_path(coordinations[:id]), method: :post, class: "like-btn"
@@ -20,18 +19,16 @@
         .aadd
           - @outers.each do |outer|
             .aahh
-              
               = image_tag outer.outer
-                
+              = link_to "削除", outer_path(outer.id), method: :delete, class: "pic-btn"
       .aaff
         %label(for="label2")インナー一覧
         %input(type="checkbox" id="label2")
         .aadd
           - @inners.each do |inner|
             .aahh
-              
               = image_tag inner.inner
-                
+              = link_to "削除", inner_path(inner.id), method: :delete, class: "pic-btn"
       .aaff
         %label(for="label3")ボトム一覧
         %input(type="checkbox" id="label3")
@@ -39,6 +36,7 @@
           - @bottoms.each do |bottom|
             .aahh
               = image_tag bottom.bottom
+              = link_to "削除", bottom_path(bottom.id), method: :delete, class: "pic-btn"
       .aaff
         %label(for="label4")靴一覧
         %input(type="checkbox" id="label4")
@@ -46,6 +44,7 @@
           - @shoes.each do |shoes|
             .aahh
               = image_tag shoes.shoe
+              = link_to "削除", shoe_path(shoes.id), method: :delete, class: "pic-btn"
       .aaff
         %label(for="label5")帽子一覧
         %input(type="checkbox" id="label5")
@@ -53,13 +52,15 @@
           - @hats.each do |hat|
             .aahh
               = image_tag hat.hat
+              = link_to "削除", hat_path(hat.id), method: :delete, class: "pic-btn"
       .aaff    
         %label(for="label6")アクセサリー一覧
         %input(type="checkbox" id="label6")
         .aadd
           - @accessories.each do |accessory|
-            .aahh
+            .aahhh
               = image_tag accessory.accessory
+              = link_to "削除", accessory_path(accessory.id), method: :delete, class: "pics-btn"
 .footer
   .select-field
     .detail

@@ -5,7 +5,7 @@ class Coordination < ApplicationRecord
   belongs_to :shoe, optional: true
   belongs_to :hat, optional: true
   belongs_to :accessory, optional: true
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :accessory_coordinations
   has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites, source: :user

@@ -6,14 +6,14 @@ Rails.application.routes.draw do
 
   
   resources :coordinations, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-    resources :favorites, only: [:index, :new, :create]
+    resources :favorites, only: [:index, :new, :create, :destroy]
     get :search, on: :collection
   end
-  resources :users, only: [:index, :new, :create]
-  resources :outers, only: [:index, :new, :create]
-  resources :inners, only: [:index, :new, :create]
-  resources :bottoms, only: [:index, :new, :create]
-  resources :shoes, only: [:index, :new, :create]
-  resources :hats, only: [:index, :new, :create]
-  resources :accessories, only: [:index, :new, :create]
+  resources :users, only: [:index, :new, :create, :destroy]
+  resources :outers, only: [:index, :new, :create, :destroy]
+  resources :inners, only: [:index, :new, :create, :destroy]
+  resources :bottoms, only: [:index, :new, :create, :destroy]
+  resources :shoes, only: [:index, :new, :create, :destroy]
+  resources :hats, only: [:index, :new, :create, :destroy]
+  resources :accessories, only: [:index, :new, :create, :destroy]
 end

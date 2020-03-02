@@ -1,6 +1,10 @@
 .like-main
   - @favoritess.each do |favorite|
-    = link_to Coordination.find(favorite.coordination_id).coordination, coordination_path(Coordination.find(favorite.coordination_id).id), class: "like-root"
+    .coo-link
+      = link_to Coordination.find(favorite.coordination_id).coordination, coordination_path(Coordination.find(favorite.coordination_id).id), class: "like-root"
+    
+      = link_to "削除", "/coordinations/:coordination_id/favorites/#{favorite.id}", method: :delete, class: "fav-btn"
+    
 .ftftft
   .root-btns
     .root-btn

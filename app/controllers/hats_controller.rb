@@ -16,6 +16,12 @@ class HatsController < ApplicationController
     end
   end
 
+  def destroy
+    @hat = Hat.find(params[:id])
+    if @hat.destroy
+      redirect_to root_path
+    end
+  end
   private
   def hat_params
     params.require(:hat).permit(:hat, :image, coordinations_attributes: [:hat_id]).merge(user_id: current_user.id)
