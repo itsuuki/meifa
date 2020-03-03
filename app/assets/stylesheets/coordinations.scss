@@ -11,9 +11,25 @@
   .title {
     color: black;
     font-size: 55px;
-    text-align: center;    
     margin: 0 auto;
-    display: flex;
+    font-family: serif;
+    z-index: 1;
+    position: relative;
+    }
+  .title:before, .title:after {
+    content: '';
+    top: 50%;
+    display: inline-block;
+    width: 630px;
+    height: 2px;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+  }
+  .title:before {
+    left:0;
+  }
+  .title:after {
+    right: 0;
   }
 }
 #wrap{

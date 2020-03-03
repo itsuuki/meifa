@@ -83,7 +83,7 @@ class CoordinationsController < ApplicationController
     @shoes = Shoe.where(user_id: current_user.id)
     @hats = Hat.where(user_id: current_user.id)
     @accessories = Accessory.where(user_id: current_user.id)
-    @outer = Outer.find(@coordination.outer_id)
+    # @outer = Outer.find(@coordination.outer_id)
     # binding.pry
   end
 
