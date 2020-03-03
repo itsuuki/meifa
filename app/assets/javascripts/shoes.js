@@ -13,6 +13,7 @@ $(function(){
     })
     .done(function(data){
       $('.add-btn').prop('disabled', false);
+      alert("写真を追加しました。")
     })
   })
 })
