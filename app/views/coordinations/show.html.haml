@@ -8,37 +8,43 @@
     .souter
       - if @outer != []
         = image_tag @outer.outer
-        = "アウター"
+        .mouter
+          = "アウター"
       - else
         = "アウターの画像がありません"
     .sinner
       - if @inner != []
         = image_tag @inner.inner
-        = "インナー"
+        .minner
+          = "インナー"
       - else
         = "インナーの画像がありません"
     .sbottom
       - if @bottom != []
         = image_tag @bottom.bottom
-        = "ズボン"
+        .mbottom
+          = "ズボン"
       - else
         = "ボトムの画像がありません"
     .sshoes
       - if @shoes != []
         = image_tag @shoes.shoe
-        = "靴"
+        .mshoes
+          = "靴"
       - else
         = "靴の画像がありません"
     .shat
       - if @hat != []
         = image_tag @hat.hat
-        = "帽子"
+        .mhat
+          = "帽子"
       - else
         = "帽子の画像がありません"
     .saccessory
       - if @accessory != []
         = image_tag @accessory.accessory
-        = "アクセサリー"
+        .maccessory
+          = "アクセサリー"
       - else
         = "アクセサリーの画像がありません"
 .ftftft
